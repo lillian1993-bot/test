@@ -1,17 +1,17 @@
-document.getElementById("policy-form").addEventListener("submit", function(e){
-    e.preventDefault();
-    const value = document.getElementById("policy").value;
-
-    if(!value) return;
-
-    let target = "";
-    if (value >= 1 && value <= 6) {
-        target = "sustainable.html";
-    } else if (value >= 7 && value <= 11) {
-        target = "digital.html";
-    } else {
-        target = "participation.html";
-    }
-
-    window.location.href = `${target}?id=${value}`;
+document.getElementById("policyForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const policy = document.getElementById("policy").value;
+  switch(policy){
+    case "sustainable":
+      window.location.href = "sustainable.html";
+      break;
+    case "digital":
+      window.location.href = "digital.html";
+      break;
+    case "participation":
+      window.location.href = "participation.html";
+      break;
+    default:
+      alert("請選擇一個政策建議！");
+  }
 });
