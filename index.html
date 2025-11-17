@@ -1,47 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>啟動改變</title>
-<link rel="stylesheet" href="style.css">
-<script src="redirect.js" defer></script>
+  <meta charset="UTF-8">
+  <title>兒少政策互動表單</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<h1>如果在這些議題上，你是握有決策權力的人，你會優先採納哪一條兒少建議？</h1>
-<p>完成選擇後，你將看見改變後的世界。</p>
-
-<form id="policy-form">
-    <select id="policy" name="policy" style="font-size:1.1rem;padding:.5rem;" required>
-        <option value="">— 請選擇一項政策建議 —</option>
-
-        <optgroup label="一、永續環境">
-            <option value="1">1. 全民氣候行動日</option>
-            <option value="2">2. 菸蒂不落地</option>
-            <option value="3">3. 綠色通勤更容易</option>
-            <option value="4">4. 社區公園 × 多種樹</option>
-            <option value="5">5. 減塑日行動！</option>
-            <option value="6">6. 菸品減害設計</option>
-        </optgroup>
-
-        <optgroup label="二、數位安全與健康使用">
-            <option value="7">7. 3C內建健康提醒</option>
-            <option value="8">8. 健康使用3C教育</option>
-            <option value="9">9. 校園無3C日</option>
-            <option value="10">10. 數位性剝削零容忍</option>
-            <option value="11">11. 媒體共同遏止數位性剝削</option>
-        </optgroup>
-
-        <optgroup label="三、兒少參與及表意">
-            <option value="12">12. 全校學生會議制度化</option>
-        </optgroup>
+  <h1>選擇你想優先執行的政策建議</h1>
+  <form id="policyForm">
+    <label for="policy">請選擇政策建議：</label>
+    <select id="policy" required>
+      <option value="" disabled selected>-- 請選擇 --</option>
+      <option value="sustainable">永續環境</option>
+      <option value="digital">數位安全與健康使用</option>
+      <option value="participation">兒少參與及表意權</option>
     </select>
+    <button type="submit">提交選擇</button>
+  </form>
 
-    <br><br>
-    <button type="submit">按下改變的快捷鍵</button>
-</form>
-
+  <script src="redirect.js"></script>
 </body>
 </html>
-
