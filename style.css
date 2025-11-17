@@ -1,28 +1,34 @@
-body {
-  margin: 0;
-  padding: 20px;
-  background: black;
-  color: #00FF00;
-  font-family: monospace;
+export async function runSimulation(terminalId, policyName, asciiArt) {
+  const terminal = document.getElementById(terminalId);
+  function sleep(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
+
+  async function typeText(text, speed=20){
+    for(let char of text){
+      terminal.textContent += char;
+      terminal.scrollTop = terminal.scrollHeight;
+      await sleep(speed);
+    }
+  }
+
+  async function showLoading() {
+    const loadings = [
+      {bar:"███▒▒▒▒▒▒▒▒", percent:"35% 更新中..."},
+      {bar:"█████▒▒▒▒▒", percent:"50% 更新中..."},
+      {bar:"███████▒▒▒", percent:"75% 更新中..."},
+      {bar:"███████████", percent:"100% 更新完成！"}
+    ];
+    for(let l of loadings){
+      await typeText(`[LOADING] ${l.bar}  ${l.percent}\n`, 50);
+      await sleep(500);
+    }
+  }
+
+  terminal.textContent = "";
+  await typeText(`你的選擇是：${policyName}\n\n`, 30);
+  await typeText("正在模擬政策執行過程...\n\n", 30);
+  await showLoading();
+  await sleep(500);
+  await typeText("\n政策已成功執行！\n\n", 30);
+  await typeText(asciiArt, 20);
 }
 
-#terminal {
-  white-space: pre-wrap;
-  max-height: 100vh;
-  overflow-y: auto;
-  background: black;
-  color: #00FF00;
-  padding: 20px;
-  box-sizing: border-box;
-}
-button, select, label {
-  background: black;
-  color: #00FF00;
-  border: 1px solid #00FF00;
-  padding: 5px 10px;
-  font-family: monospace;
-  margin: 10px 0;
-}
-button {
-  cursor: pointer;
-}
