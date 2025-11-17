@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>兒少參與｜政策模擬</title>
+<link rel="stylesheet" href="style.css">
+<script src="scripts/typewriter.js"></script>
+</head>
+
+<body>
+
+<h1>兒少參與與表意權｜政策執行模擬系統</h1>
+
+<div id="console" class="console-box" style="background:#1a001a;color:#ffb3ff;"></div>
+
+<!-- 政策資料 -->
+<script>
+const policies = {
+  1: "【全民氣候行動日】制定應對氣候變遷的法律，並定期舉辦全民氣候行動活動。",
+  2: "【菸蒂不落地】推動菸蒂減量與收集設施，並加強教育宣導。",
+  3: "【綠色通勤更容易】提升公共運輸使用率，並提供誘因減少私人交通工具。",
+  4: "【社區公園 × 樹更多】增加綠地與兒少遊戲場所，打造更健康的城市。",
+  5: "【減塑日行動】每月一次減塑日，減少一次性塑膠。",
+  6: "【菸品減害設計】推行可分解濾嘴，降低環境污染。",
+  7: "【智慧3C設計】規範長時間使用需跳出休息提醒，保護眼睛與健康。",
+  8: "【健康使用3C教育】提供教材與宣導，幫助了解過度使用的危害。",
+  9: "【校園無3C日】每學期至少一次，促進學生戶外活動。",
+  10:"【數位性剝削零容忍】補強法律並設立兒少專屬的安全通報系統。",
+  11:"【媒體共同守護】政府與媒體共同宣導數位性剝削風險。",
+  12:"【全校學生會議制度化】建立制度化學生參與校園決策的機制。"
+};
+
+const policiesEN = {
+  1: "National Climate Action Day",
+  2: "No Cigarette Butts",
+  3: "Green Commuting",
+  4: "More Community Parks",
+  5: "Plastic Reduction Day",
+  6: "Eco-friendly Cigarette Filters",
+  7: "Smart 3C Design",
+  8: "Healthy 3C Education",
+  9: "No-3C School Day",
+  10:"Zero Digital Sexual Exploitation",
+  11:"Media Co-Protection",
+  12:"Student Meetings Institutionalization"
+};
+
+function getParam(key) {
+    return new URLSearchParams(window.location.search).get(key);
+}
+</script>
+
+<!-- 執行動畫 -->
+<script>
+const consoleBox = document.getElementById("console");
+autoScroll(consoleBox);
+
+const id = getParam("id");
+
+const text = `
+> 接收兒少意見中...
+> 你選擇的政策是：
+▶ ${policies[id]}
+(EN: ${policiesEN[id]})
+
+> 教育部、學校行政、兒少團體共同召開會議...
+> 討論如何讓兒少真正參與校務與政策流程...
+> 兒少進行第二輪意見回饋...
+> 決策拍板！開始推動更加民主的校園制度！
+
+---------------------------------------
+【願景｜兒少參與與表意權】
+讓每位兒少的聲音被看見、被聽見、被尊重，
+打造真正以孩子為中心的參與式校園文化。
+---------------------------------------
+`;
+
+typeWriter(consoleBox, text, 30);
+</script>
+
+</body>
+</html>
